@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-	project: Project;
+	selectedProject: Project;
 	projects: Project[];
 
 	constructor() {
@@ -21,9 +21,13 @@ export class AppComponent {
 		}];
 	}
 
+	onSelect(project: Project) {
+		this.selectedProject = project;
+	}
+
 	addHours(project: Project, hours: number){		
-		console.log(project.hours + " \n " + hours);
-		this.projects[project.id].hours += hours;
+		this.selectedProject.hours += +hours;
+		console.log(this.selectedProject.hours);
 	}
 }
 
