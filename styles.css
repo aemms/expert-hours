@@ -3,3 +3,16 @@
   .projects ul {
     list-style: none;
     padding: 20px; }
+  .projects .project {
+    border: 2px solid #3498db;
+    margin: 20px 0;
+    padding: 20px;
+    color: #3498db;
+    text-align: center; }
+    .projects .project input {
+      border: none;
+      border-bottom: 1px solid #3498db; }
+    .projects .project button {
+      border: 1px solid #3498db;
+      background-color: transparent;
+      margin: 0 20px; }

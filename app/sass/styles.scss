@@ -5,4 +5,23 @@
 		list-style: none;
 		padding: 20px;
 	}
+
+	.project {
+		border: 2px solid #3498db;
+		margin:20px 0;
+		padding: 20px;
+		color: #3498db;
+		text-align: center;
+
+		input {
+			border: none;
+			border-bottom: 1px solid #3498db;
+		}
+
+		button {
+			border: 1px solid #3498db;
+			background-color: transparent;
+			margin: 0 20px;
+		}
+	}
 }
