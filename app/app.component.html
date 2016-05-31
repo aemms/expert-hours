@@ -1,0 +1,27 @@
+<h1>Expert Hours</h1>
+<p>To do: create testing model of project</p>
+
+<div class="projects">
+	<ul>
+		<li *ngFor="let project of projects" (click)="onSelect(project)" class="project">
+			<h1>{{project.name}}</h1>
+			<p>{{project.hours}}</p>
+			<p>{{project.hours / 100}}% there!</p>
+			<input placeholder="Enter Hours" #toAdd>
+			<button (click)='addHours(project, toAdd)'>Add</button>
+		</li>
+	</ul>	
+</div>
+
+<div>
+	<h2>Add Project</h2>
+	<form>
+		<label for="name">Name</label>
+		<input type="text" required #addName>
+
+		<label for="hours">Hours</label>
+		<input type="text" #addPHours>
+
+		<button type="submit" (click)='addProject(addName.value, addPHours.value)'>Submit</button>
+	</form>
+</div>
