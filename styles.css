@@ -16,3 +16,8 @@
       border: 1px solid #3498db;
       background-color: transparent;
       margin: 0 20px; }
+  .projects .outof {
+    font-size: 14px;
+    position: absolute;
+    margin-top: 18px;
+    margin-left: 4px; }

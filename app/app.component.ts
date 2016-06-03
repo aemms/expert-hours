@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'dist/app.component.html'
+  templateUrl: 'app/app.component.html'
 })
 
 export class AppComponent {
@@ -21,7 +21,7 @@ export class AppComponent {
 	addProject(name: string, hours: number){
 		this.projects.push({ name, hours });
 	}
-}g
+}
 
 export class Project {
 	name: string;
