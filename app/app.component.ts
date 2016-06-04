@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from 		'@angular/common';
 
 @Component({
   selector: 'my-app',
@@ -7,9 +8,11 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 	selectedProject: Project;
-	projects = PROJECTS;
+	public projects = PROJECTS;
 
-	onSelect(project: Project) {
+	model = new Project("test", 150);
+
+	onSelect(project: any){
 		this.selectedProject = project;
 	}
 
@@ -18,14 +21,16 @@ export class AppComponent {
 		hours.value = '';
 	}
 
-	addProject(name: string, hours: number){
-		this.projects.push({ name, hours });
+	addProject(project: any): void{
+		this.projects.push({name: project.name, hours: +project.hours});
 	}
 }
 
 export class Project {
-	name: string;
-	hours: number;
+	constructor(
+		public name: string,
+		public hours: number){
+	}
 }
 
 var PROJECTS: Project[] = [

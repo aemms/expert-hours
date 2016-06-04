@@ -3,8 +3,7 @@
 
 <div class="projects">
 	<ul>
-		<li *ngFor="let project of projects" 
-			(click)="onSelect(project)" 
+		<li *ngFor="let project of projects" (click)='onSelect(project)'
 			class="project">
 			<h2>{{project.name}}</h2>
 			<h1>{{project.hours}}<span class='outof'>hours</span></h1>
@@ -23,13 +22,13 @@
 
 <div>
 	<h2>Add Project</h2>
-	<form>
+	<form #projectForm="ngForm" (ngSubmit)="addProject(projectForm.value)">
 		<label for="name">Name</label>
-		<input type="text" required #addName>
+		<input type="text" required ngControl="name">
 
 		<label for="hours">Hours</label>
-		<input type="text" #addPHours>
+		<input type="text" ngControl="hours">
 
-		<button type="submit" (click)='addProject(addName.value, addPHours.value)'>Submit</button>
+		<button type="submit">Submit</button>
 	</form>
 </div>
