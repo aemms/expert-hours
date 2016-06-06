@@ -5,17 +5,23 @@
 	<ul>
 		<li *ngFor="let project of projects" (click)='onSelect(project)'
 			class="project">
-			<h2>{{project.name}}</h2>
-			<h1>{{project.hours}}<span class='outof'>hours</span></h1>
-			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="70" 
-					aria-valuemin="0" aria-valuemax="100" [style.width.%]='project.hours/100'>
-			    	<span class="sr-only">{{project.hours/100}}% Complete</span>
-						{{project.hours/100}}%
-			    </div>
+			
+			<div *ngIf="!hovering" class="projectinfo">
+				<h2>{{project.name}}</h2>
+				<h1>{{project.hours}}<span class='outof'>hours</span></h1>
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="70" 
+						aria-valuemin="0" aria-valuemax="100" [style.width.%]='project.hours/100'>
+				    	<span class="sr-only">{{project.hours/100}}% Complete</span>
+							{{project.hours/100}}%
+				    </div>
+				</div>
 			</div>
-			<input placeholder="Enter Hours" #toAdd>
-			<button (click)='addHours(project, toAdd)'>Add</button>
+			
+			<div *ngIf="hovering" class="projectnew">
+				<input placeholder="Enter Hours" #toAdd>
+				<button (click)='addHours(project, toAdd)'>Add</button>
+			</div>
 		</li>
 	</ul>	
 </div>

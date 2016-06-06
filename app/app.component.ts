@@ -14,7 +14,8 @@ export class AppComponent {
 	selectedProject: Project;
 	public projects = PROJECTS;
 	private el: HTMLElement;
-
+	hovering = false;
+	
 	contructor(el: ElementRef){
 		this.el = el.nativeElement;
 	}
@@ -36,10 +37,12 @@ export class AppComponent {
 
 	onMouseEnter(){
 		//switch inners of li to show add project
+		this.hovering=true;
 	}
 
 	onMouseLeave(){
 		//show normal top bit
+		this.hovering=false;
 	}
 }
 
