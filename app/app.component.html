@@ -4,9 +4,9 @@
 <div class="projects">
 	<ul>
 		<li *ngFor="let project of projects" (click)='onSelect(project)'
-			class="project">
+			class="project" #hovering>
 			
-			<div *ngIf="!hovering" class="projectinfo">
+			<div class="projectinfo" (mouseenter)="hovering=true" *ngIf="!hovering">
 				<h2>{{project.name}}</h2>
 				<h1>{{project.hours}}<span class='outof'>hours</span></h1>
 				<div class="progress">
@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			
-			<div *ngIf="hovering" class="projectnew">
+			<div class="projectnew" *ngIf="hovering" (mouseleave)="hovering = false">
 				<input placeholder="Enter Hours" #toAdd>
 				<button (click)='addHours(project, toAdd)'>Add</button>
 			</div>
