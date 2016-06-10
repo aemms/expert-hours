@@ -4,7 +4,7 @@
 <div class="projects">
 	<ul>
 		<li *ngFor="let project of projects" (click)='onSelect(project)'
-			class="project">
+			class="project" (mouseenter)="onMouseEnter(project)" (mouseleave)="onMouseLeave(project)">
 			
 			<div *ngIf="!hovering" class="projectinfo">
 				<h2>{{project.name}}</h2>

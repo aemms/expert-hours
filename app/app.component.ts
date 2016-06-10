@@ -3,24 +3,15 @@ import { NgForm } from 		'@angular/common';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.component.html',
-  host: {
-  	'(mouseenter)': 'onMouseEnter()',
-  	'(mouseleave)': 'onMouseLeave()'
-  }
+  templateUrl: 'app/app.component.html'
 })
 
 export class AppComponent {
 	selectedProject: Project;
 	public projects = PROJECTS;
-	private el: HTMLElement;
 	hovering = false;
-	
-	contructor(el: ElementRef){
-		this.el = el.nativeElement;
-	}
 
-	model = new Project("test", 150);
+	model = new Project("test", 150, false);
 
 	onSelect(project: any){
 		this.selectedProject = project;
@@ -32,28 +23,29 @@ export class AppComponent {
 	}
 
 	addProject(project: any): void{
-		this.projects.push({name: project.name, hours: +project.hours});
+		this.projects.push({name: project.name, hours: +project.hours, hovering: false});
 	}
 
-	onMouseEnter(){
+	onMouseEnter(project: any){
 		//switch inners of li to show add project
-		this.hovering=true;
+		project.hovering=true;
 	}
 
-	onMouseLeave(){
+	onMouseLeave(project: any){
 		//show normal top bit
-		this.hovering=false;
+		project.hovering=false;
 	}
 }
 
 export class Project {
 	constructor(
 		public name: string,
-		public hours: number){
+		public hours: number,
+		public hovering: boolean){
 	}
 }
 
 var PROJECTS: Project[] = [
-	{ "name": "angular", hours: 10 },
-	{ "name": "testing", hours: 20 }
+	{ "name": "angular", hours: 10, hovering: false },
+	{ "name": "testing", hours: 20, hovering: false}
 ];

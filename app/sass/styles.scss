@@ -1,5 +1,4 @@
 .projects {
-	max-width: 500px;
 
 	ul {
 		list-style: none;
@@ -12,6 +11,9 @@
 		padding: 20px;
 		color: #3498db;
 		text-align: center;
+		min-width:300px;
+		max-width: 500px;
+		min-height:300px;
 
 		input {
 			border: none;
