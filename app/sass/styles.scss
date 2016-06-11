@@ -1,3 +1,6 @@
+body {
+	text-align: center;
+}
 .projects {
 
 	ul {
@@ -7,13 +10,20 @@
 
 	.project {
 		border: 2px solid #3498db;
-		margin:20px 0;
+		margin:20px auto;
 		padding: 20px;
-		color: #3498db;
+		color: #eee;
 		text-align: center;
 		min-width:300px;
 		max-width: 500px;
 		min-height:300px;
+		
+		&.colorgrad1 {
+			background: -webkit-linear-gradient(#185a9d, #2e96a0); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#185a9d, #2e96a0); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#185a9d, #2e96a0); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#185a9d, #2e96a0);
+		}
 
 		input {
 			border: none;
@@ -24,6 +34,10 @@
 			border: 1px solid #3498db;
 			background-color: transparent;
 			margin: 0 20px;
+		}
+
+		.projectnew {
+			display: none;
 		}
 	}
 	.outof {

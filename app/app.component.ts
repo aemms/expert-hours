@@ -9,7 +9,6 @@ import { NgForm } from 		'@angular/common';
 export class AppComponent {
 	selectedProject: Project;
 	public projects = PROJECTS;
-	hovering = false;
 
 	model = new Project("test", 150, false);
 
@@ -17,23 +16,29 @@ export class AppComponent {
 		this.selectedProject = project;
 	}
 
-	addHours(project: Project, hours){
+	addHours(project: Project, hours: any, projectnew: any, projectinfo: any){
 		this.selectedProject.hours += +hours.value;
 		hours.value = '';
+		console.log(projectinfo);
+		projectnew.style.display = "none";
+		projectinfo.style.display = "block";
 	}
 
 	addProject(project: any): void{
 		this.projects.push({name: project.name, hours: +project.hours, hovering: false});
 	}
 
-	onMouseEnter(project: any){
+	onMouseEnter(event: any){
 		//switch inners of li to show add project
-		project.hovering=true;
+		console.log(event);
+		event.target.firstElementChild.style.display = "none";
+		event.target.lastElementChild.style.display = "block";
 	}
 
-	onMouseLeave(project: any){
+	onMouseLeave(event: any){
 		//show normal top bit
-		project.hovering=false;
+		event.target.firstElementChild.style.display = "block";
+		event.target.lastElementChild.style.display = "none";
 	}
 }
 
