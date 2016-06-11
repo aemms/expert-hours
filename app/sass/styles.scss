@@ -5,7 +5,7 @@ body {
 
 	ul {
 		list-style: none;
-		padding: 20px;
+		padding: 0 20px 20px 20px;
 	}
 
 	.project {
@@ -17,7 +17,7 @@ body {
 		max-width: 500px;
 		min-height:300px;
 		position: relative;
-		box-shadow: 0px 0px 5px 2px #aaa;
+		box-shadow: 0px 0px 10px 1px #aaa;
 		
 		&.colorgrad1 {
 			background: -webkit-linear-gradient(#185a9d, #2e96a0); /* For Safari 5.1 to 6.0 */
@@ -39,6 +39,31 @@ body {
 
 		.projectnew {
 			display: none;
+
+			h3 {
+				font-weight: 100;
+				margin-top: 50px;
+			}
+
+			input {
+		    height: 100px;
+		    width: 100px;
+		    line-height: 10em;
+		    font-size: 60px;
+		    text-align: center;
+		    font-stretch: ultra-condensed;
+		    display:block;
+		    margin: 0 auto;
+		    color: white;
+		    background-color: transparent;
+		    border: 1px solid white;
+			}
+
+			i {
+				display: block;
+				font-size: 30px;
+				margin-top: 10px;
+			}
 		}
 
 		.projectinfo {
@@ -51,6 +76,11 @@ body {
 				letter-spacing: 5px;
 				font-weight: 100;
 			}
+			p {
+				font-weight: 100;
+				font-size: 16px;
+				margin-top: 14px;
+			}
 		}
 
 		.progress {
@@ -62,10 +92,15 @@ body {
 			bottom: 4%;
 			border-radius: 0;
 			height: 40px;
+			background-color: transparent;
+			border: 1px solid white;
 
 			.progress-bar {
 				padding-top: 10px;
 				padding-left: 2px;
+				background-color: white;
+				color: #2e96a0;
+				font-weight:bold;
 			}
 		}
 	}
@@ -74,5 +109,6 @@ body {
     position: absolute;
     margin-top: 60px;
     margin-left: 4px;
+    font-weight: 100;
 	}
 }
