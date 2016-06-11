@@ -10,7 +10,7 @@ export class AppComponent {
 	selectedProject: Project;
 	public projects = PROJECTS;
 
-	model = new Project("test", 150, false);
+	model = new Project("test", 150);
 
 	onSelect(project: any){
 		this.selectedProject = project;
@@ -25,7 +25,7 @@ export class AppComponent {
 	}
 
 	addProject(project: any): void{
-		this.projects.push({name: project.name, hours: +project.hours, hovering: false});
+		this.projects.push({name: project.name, hours: +project.hours});
 	}
 
 	onMouseEnter(event: any){
@@ -45,12 +45,11 @@ export class AppComponent {
 export class Project {
 	constructor(
 		public name: string,
-		public hours: number,
-		public hovering: boolean){
+		public hours: number){
 	}
 }
 
 var PROJECTS: Project[] = [
-	{ "name": "angular", hours: 10, hovering: false },
-	{ "name": "testing", hours: 20, hovering: false}
+	{ "name": "angular", hours: 10 },
+	{ "name": "testing", hours: 20 }
 ];
