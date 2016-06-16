@@ -28,14 +28,13 @@ export class ProjectList {
 
 	onMouseEnter(event: any) {
 		//switch inners of li to show add project
-		console.log(event);
-		event.target.firstElementChild.style.display = "none";
-		event.target.lastElementChild.style.display = "block";
+		event.target.getElementsByClassName("projectinfo")[0].style.display = "none";
+		event.target.getElementsByClassName("projectnew")[0].style.display = "block";
 	}
 
 	onMouseLeave(event: any) {
 		//show normal top bit
-		event.target.firstElementChild.style.display = "block";
-		event.target.lastElementChild.style.display = "none";
+		event.target.getElementsByClassName("projectinfo")[0].style.display = "block";
+		event.target.getElementsByClassName("projectnew")[0].style.display = "none";
 	}
 }
