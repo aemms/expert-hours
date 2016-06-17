@@ -15,7 +15,7 @@
 	
 	<div class="projectnew" #projectnew>
 		<h3>Add Hours</h3>
-		<input placeholder="0" #toAdd>				
+		<input placeholder="0" #toAdd (keyup.enter)='addHours(project, toAdd, projectnew, projectinfo)'>				
 		<i class="icon ion-plus" (click)='addHours(project, toAdd, projectnew, projectinfo)'></i>
 	</div>
 </li>
