@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from 		'@angular/common';
 
-import { ProjectService } from './project.service'
+import { ProjectService } from './project.service';
 
 import { ProjectList } from './project-list.component';
 import { Project } from './project';
