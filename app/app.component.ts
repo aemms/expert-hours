@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 	constructor(private projectService: ProjectService){ }
 	
 	getProjects(){
-		this.projects = this.projectService.getProjects();
+		this.projectService.getProjects().then(projects => this.projects = projects);
 	}
 
 	addProject(project: any): void{
