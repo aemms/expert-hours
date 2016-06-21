@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 
 import { Project } from './project';
-import { PROJECTS } from './mock-projects';
+import { ProjectService } from './project.service';
 
 @Component({
 	selector: 'project-list',
 	templateUrl: 'app/project-list.component.html'
 })
 
-export class ProjectList {
+export class ProjectList implements OnInit {
 	selectedProject: Project;
-	public projects = PROJECTS;
+	public projects = Project[];
+	
+	constructor(private projectService: ProjectService){ }
+	
+	getProjects(){
+		this.projectService.getProjects().then(projects => this.projects = projects);
+	}
+
+	addProject(project: any): void{
+		this.projects.push({name: project.name, hours: +project.hours});
+		project.name = '';
+		project.hours = 0;
+	}
 
 	model = new Project("test", 150);
 
@@ -36,5 +48,9 @@ export class ProjectList {
 		//show normal top bit
 		event.target.getElementsByClassName("projectinfo")[0].style.display = "block";
 		event.target.getElementsByClassName("projectnew")[0].style.display = "none";
+	}
+	
+	ngOnInit() {
+		this.getProjects();
 	}
 }

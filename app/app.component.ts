@@ -13,22 +13,4 @@ import { Project } from './project';
   providers: [ProjectService]
 })
 
-export class AppComponent implements OnInit {
-	public projects = Project[];
-	
-	constructor(private projectService: ProjectService){ }
-	
-	getProjects(){
-		this.projectService.getProjects().then(projects => this.projects = projects);
-	}
-
-	addProject(project: any): void{
-		this.projects.push({name: project.name, hours: +project.hours});
-		project.name = '';
-		project.hours = 0;
-	}
-	
-	ngOnInit() {
-		this.getProjects();
-	}
-}
+export class AppComponent { }
