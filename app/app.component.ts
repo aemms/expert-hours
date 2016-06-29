@@ -1,55 +1,16 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from 		'@angular/common';
+
+import { ProjectService } from './project.service';
+
+import { ProjectList } from './project-list.component';
+import { Project } from './project';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.component.html'
+  directives: [ProjectList],
+  templateUrl: 'app/app.component.html',
+  providers: [ProjectService]
 })
 
-export class AppComponent {
-	selectedProject: Project;
-	public projects = PROJECTS;
-
-	model = new Project("test", 150);
-
-	onSelect(project: any){
-		this.selectedProject = project;
-	}
-
-	addHours(project: Project, hours: any, projectnew: any, projectinfo: any){
-		this.selectedProject.hours += +hours.value;
-		hours.value = '';
-		console.log(projectinfo);
-		projectnew.style.display = "none";
-		projectinfo.style.display = "block";
-	}
-
-	addProject(project: any): void{
-		this.projects.push({name: project.name, hours: +project.hours});
-	}
-
-	onMouseEnter(event: any){
-		//switch inners of li to show add project
-		console.log(event);
-		event.target.firstElementChild.style.display = "none";
-		event.target.lastElementChild.style.display = "block";
-	}
-
-	onMouseLeave(event: any){
-		//show normal top bit
-		event.target.firstElementChild.style.display = "block";
-		event.target.lastElementChild.style.display = "none";
-	}
-}
-
-export class Project {
-	constructor(
-		public name: string,
-		public hours: number){
-	}
-}
-
-var PROJECTS: Project[] = [
-	{ "name": "angular", hours: 10 },
-	{ "name": "testing", hours: 20 }
-];
+export class AppComponent { }
