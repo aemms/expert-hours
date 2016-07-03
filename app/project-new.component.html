@@ -1,0 +1,8 @@
+<h2>Add Project</h2>
+<form #projectForm="ngForm" >
+  <input class="add-name" type="text" required ngControl="name" placeholder="name">
+
+  <input class="add-hours" type="text" ngControl="hours" placeholder="0">
+  
+  <i class="icon ion-plus" (click)="addProject(projectForm.value)"></i>
+</form>

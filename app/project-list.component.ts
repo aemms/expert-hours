@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Project } from './project';
 import { ProjectService } from './project.service';
@@ -10,18 +10,12 @@ import { ProjectService } from './project.service';
 
 export class ProjectList implements OnInit {
 	selectedProject: Project;
-	public projects = Project[];
+	public projects: Project[];
 	
 	constructor(private projectService: ProjectService){ }
 	
 	getProjects(){
 		this.projectService.getProjects().then(projects => this.projects = projects);
-	}
-
-	addProject(project: any): void{
-		this.projects.push({name: project.name, hours: +project.hours});
-		project.name = '';
-		project.hours = 0;
 	}
 
 	model = new Project("test", 150);
@@ -39,7 +33,6 @@ export class ProjectList implements OnInit {
 
 	onMouseEnter(event: any) {
 		//switch inners of li to show add project	
-		console.log(event);	
 		event.target.getElementsByClassName("projectinfo")[0].style.display = "none";
 		event.target.getElementsByClassName("projectnew")[0].style.display = "block";
 	}
