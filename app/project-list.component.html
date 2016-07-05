@@ -14,8 +14,11 @@
 	</div>
 	
 	<div class="projectnew" #projectnew>
-		<h3>Add Hours</h3>
-		<input placeholder="0" #toAdd (keyup.enter)='addHours(project, toAdd, projectnew, projectinfo)'>				
-		<i class="icon ion-plus" (click)='addHours(project, toAdd, projectnew, projectinfo)'></i>
+		<form>
+			<h3>Add Hours</h3>
+			<input placeholder="0" #toAdd (keyup.enter)='addHours(project, toAdd, projectnew, projectinfo)'>
+			<input type="submit" value="Submit"/>
+			<i class="icon ion-plus" (click)='addHours(project, toAdd, projectnew, projectinfo)'></i>
+		</form>
 	</div>
 </li>
