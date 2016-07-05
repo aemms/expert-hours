@@ -9,7 +9,7 @@ import { Project } from './project';
 
 @Component({
   selector: 'my-app',
-  directives: [ProjectList, ProjectNew],
+  directives: [ProjectList, ProjectNew, MainNavbar],
   templateUrl: 'app/app.component.html',
   providers: [ProjectService]
 })
